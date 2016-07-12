@@ -89,6 +89,7 @@ AK8963_BIT_14 = 0x00
 ## 16bit output
 AK8963_BIT_16 = 0x01
 
+## smbus
 bus = smbus.SMBus(1)
 
 ## ADXL345 class
@@ -96,9 +97,9 @@ bus = smbus.SMBus(1)
 class MPU9250:
 
     ## Constructor
-    #  @param [in] addr MPU-9250 I2C slave address
-    def __init__(self):
-        self.address = SLAVE_ADDRESS
+    #  @param [in] address MPU-9250 I2C slave address default:0x68
+    def __init__(self, address=SLAVE_ADDRESS):
+        self.address = address
         self.configMPU9250(GFS_250, AFS_2G)
         self.configAK8963(AK8963_MODE_C8HZ, AK8963_BIT_16)
 
