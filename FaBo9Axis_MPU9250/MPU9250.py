@@ -1,6 +1,6 @@
 # coding: utf-8
-## @package FaBo9Axis_MPU9250
-#  This is a library for the FaBo 9AXIS I2C Brick.
+## @package MPU9250
+#  This is a FaBo9Axis_MPU9250 library for the FaBo 9AXIS I2C Brick.
 #
 #  http://fabo.io/202.html
 #
@@ -92,8 +92,7 @@ AK8963_BIT_16 = 0x01
 ## smbus
 bus = smbus.SMBus(1)
 
-## ADXL345 class
-# Some class description
+## MPU9250 I2C Controll class
 class MPU9250:
 
     ## Constructor
@@ -281,24 +280,3 @@ class MPU9250:
         if(value & (1 << 16 - 1)):
             value -= (1<<16)
         return value
-
-if __name__ == "__main__":
-    mpu9250 = MPU9250()
-
-    while True:
-        accel = mpu9250.readAccel()
-        print "ax = ", (accel['x'])
-        print "ay = ", (accel['y'])
-        print "az = ", (accel['z'])
-        gyro = mpu9250.readGyro()
-        print "gx = ", (gyro['x'])
-        print "gy = ", (gyro['y'])
-        print "gz = ", (gyro['z'])
-        mag = mpu9250.readMagnet()
-        print "mx = ", (mag['x'])
-        print "my = ", (mag['y'])
-        print "mz = ", (mag['z'])
-        temp = mpu9250.readTemperature()
-        print "temp = ", temp
-        print
-        time.sleep(0.3)
