@@ -17,7 +17,7 @@ classifiers = ['Development Status :: 4 - Beta',
 
 setup(
     name         = 'FaBo9Axis_MPU9250',
-    version      = '1.0.0',
+    version      = '1.0.1',
     author       = 'FaBo',
     author_email = 'info@fabo.io',
     description  = "This is a library for the FaBo 9AXIS I2C Brick.",
